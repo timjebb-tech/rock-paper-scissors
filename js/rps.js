@@ -73,9 +73,29 @@ const playRound = function(humanChoice, computerChoice) {
         }
     }
 }
+
+const playGame = function(roundCount) {
+    for (var i=0; i < roundCount; i++) {
+        var computerChoice = getComputerChoice();
+        var humanChoice = getHumanChoice();
+
+        playRound(humanChoice, computerChoice);
+    }
+
+    if (humanScore > computerScore)
+    {
+        console.log(`Human wins the contest ${humanScore} to ${computerScore}!`);
+    }
+    else if (humanScore < computerScore)
+    {
+        console.log(`Computer wins the contest ${computerScore} to ${humanScore}!`);
+    }
+    else {
+        console.log(`Contest is a draw!  ${humanScore} : ${computerScore}`);
+    }
+}
+
 var humanScore = 0;
 var computerScore = 0;
-var computerChoice = getComputerChoice();
-var humanChoice = getHumanChoice();
 
-playRound(humanChoice, computerChoice);
+playGame(5);
