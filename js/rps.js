@@ -95,14 +95,18 @@ const playGame = function(roundCount) {
     }
 }
 
-var humanScore = 0;
-var computerScore = 0;
+var elementsArray = document.querySelectorAll('.chooser');
 
-playGame(5);
+console.log(`elementsArray = ${elementsArray[0]}`);
 
+onChoose = function(e) {
+    console.log("wibble");
+    console.log(e.srcElement.id);
+    document.querySelector("#choice").textContent = e.srcElement.id;
 
-let arr = ["t", "e", "s", "t"];
+}
 
-console.log( arr.slice(1, 3) ); // e,s (copy from 1 to 3)
-
-console.log( arr.slice(-2) ); // s,t (copy from -2 till the end)
+elementsArray.forEach(function(element) {
+    element.addEventListener("click", onChoose);
+    }
+);
